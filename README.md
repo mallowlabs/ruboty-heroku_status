@@ -5,6 +5,7 @@ An ruboty handler to see Heroku Status.
 ```
 @ruboty heroku status - See Heroku Status
 @ruboty heroku issues - See Heroku Issues
+@ruboty heroku issue <id>- See Heroku Issue
 ```
 
 ## Credit

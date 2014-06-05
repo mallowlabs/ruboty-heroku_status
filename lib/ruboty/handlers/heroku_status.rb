@@ -6,6 +6,7 @@ module Ruboty
     class HerokuStatus < Base
       on /heroku status/, name: "heroku", description: "See Heroku Status"
       on /heroku issues/, name: "issues", description: "See Heroku Issues"
+      on /heroku issue (?<id>\d+)/, name: "issue", description: "See Heroku Issue"
 
       def heroku(message)
         json = fetch("https://status.heroku.com/api/v3/current-status")
@@ -23,6 +24,11 @@ MESSAGE
           "#{issue['id']}: #{issue['title']} #{resolved}"
         }.join("\n")
         message.reply(body)
+      end
+
+      def issue(message)
+        url = "https://status.heroku.com/incidents/#{message[:id]}"
+        message.reply(url)
       end
 
       private
