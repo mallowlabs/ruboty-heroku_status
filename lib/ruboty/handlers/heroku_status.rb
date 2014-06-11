@@ -35,7 +35,7 @@ MESSAGE
 
       def fetch(url)
         content = open(url).read
-        json = JSON.parse(content)
+        JSON.parse(content)
       end
 
     end
